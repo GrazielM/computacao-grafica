@@ -36,11 +36,97 @@ public class Cena implements GLEventListener {
         *
         */
 
-    exercicioUm(gl);
-    exercicioDois(gl);
-
+//    exercicioUm(gl);
+//    exercicioDois(gl);
+    exercicioTres(gl);
 
     gl.glFlush();
+  }
+
+  private void exercicioTres(GL2 tela) {
+    //Linha X
+    tela.glBegin(tela.GL_LINES);
+    tela.glColor3f(1,0,0);
+    tela.glVertex2f(0,0);
+    tela.glVertex2f(1,0);
+    tela.glEnd();
+
+    //Linha Y
+    tela.glBegin(tela.GL_LINES);
+    tela.glColor3f(0,1,0);
+    tela.glVertex2f(0,0);
+    tela.glVertex2f(0,1);
+    tela.glEnd();
+
+    //Linha Z
+    tela.glBegin(tela.GL_LINES);
+    tela.glColor3f(0,0,1);
+    tela.glVertex2f(0,0);
+    tela.glVertex2f(-1,-1);
+    tela.glEnd();
+
+    //Pontos
+    tela.glBegin(tela.GL_POINTS);
+    tela.glColor3f(1,1,0);
+    tela.glVertex2f(-0.9f, 0.9f);
+    tela.glVertex2f(-0.8f, 0.9f);
+    tela.glVertex2f(-0.9f, 0.8f);
+    tela.glVertex2f(-0.8f, 0.8f);
+    tela.glEnd();
+
+    //LooP
+    tela.glBegin(tela.GL_LINE_LOOP);
+    tela.glColor3f(0,1,1);
+    tela.glVertex2f(-0.2f,0.2f);
+    tela.glVertex2f(-0.2f,0.5f);
+    tela.glVertex2f(-0.3f,0.4f);
+    tela.glVertex2f(-0.4f,0.5f);
+    tela.glVertex2f(-0.5f,0.3f);
+    tela.glVertex2f(-0.4f,0.2f);
+    tela.glVertex2f(-0.3f,0.3f);
+    tela.glVertex2f(-0.2f,0.2f);
+    tela.glEnd();
+
+    //Poligono
+    tela.glBegin(tela.GL_POLYGON);
+    tela.glColor3f(1,0.5f,0);
+    tela.glVertex2f(-0.5f, -0.2f);
+    tela.glVertex2f(-0.7f, -0.1f);
+    tela.glVertex2f(-0.9f, -0.4f);
+    tela.glVertex2f(-0.3f, -0.5f);
+    tela.glVertex2f(-0.2f, -0.1f);
+    tela.glEnd();
+
+    //Escada
+    tela.glBegin(tela.GL_QUADS);
+    tela.glColor3f(0,1,0.5f);
+    //Quad 1
+    tela.glVertex2f(0.9f, 0.1f);
+    tela.glVertex2f(0.9f, 0.2f);
+    tela.glVertex2f(0.8f, 0.2f);
+    tela.glVertex2f(0.8f, 0.1f);
+    //Quad 2
+    tela.glVertex2f(0.8f, 0.2f);
+    tela.glVertex2f(0.8f, 0.3f);
+    tela.glVertex2f(0.7f, 0.3f);
+    tela.glVertex2f(0.7f, 0.2f);
+    //Quad 2
+    tela.glVertex2f(0.7f, 0.3f);
+    tela.glVertex2f(0.7f, 0.4f);
+    tela.glVertex2f(0.6f, 0.4f);
+    tela.glVertex2f(0.6f, 0.3f);
+    tela.glEnd();
+
+    // Triangulo deformado
+    tela.glBegin(tela.GL_TRIANGLE_FAN);
+    tela.glColor3f(0, 0.5f, 1);
+    tela.glVertex2f(0.2f, -0.9f);
+    tela.glVertex2f(0.2f, -0.5f);
+    tela.glVertex2f(0.5f, -0.4f);
+    tela.glVertex2f(0.6f, -0.6f);
+    tela.glVertex2f(0.8f, -0.7f);
+    tela.glVertex2f(0.7f, -0.8f);
+    tela.glEnd();
   }
 
   private void exercicioUm(GL2 gl) {
