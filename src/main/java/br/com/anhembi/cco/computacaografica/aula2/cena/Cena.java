@@ -36,14 +36,43 @@ public class Cena implements GLEventListener {
         *
         */
 
-    gl.glColor3f(1, 1, 1); //cor branca
+    exercicioUm(gl);
+    exercicioDois(gl);
 
-    //desenha um retangulo
-    gl.glBegin(GL2.GL_POINTS);
-    gl.glVertex2f(0, 0);
-    gl.glEnd();
 
     gl.glFlush();
+  }
+
+  private void exercicioUm(GL2 gl) {
+//    Desenha um ponto
+    gl.glBegin(gl.GL_POINTS);
+    gl.glColor3f(1, 0, 0);
+    gl.glVertex2f(0, 0);
+    gl.glColor3f(0, 1, 0);
+    gl.glVertex2f(-0.3f, 0);
+    gl.glColor3f(0, 0, 1);
+    gl.glVertex2f(0, -0.3f);
+    gl.glColor3f(1, 0, 1);
+    gl.glVertex2f(-0.3f, -0.3f);
+    gl.glEnd();
+//    aumenta a expessura do ponto
+    gl.glBegin(gl.GL_POINT_SIZE);
+    gl.glPointSize(10);
+    gl.glEnd();
+  }
+
+
+  private void exercicioDois(GL2 gl) {
+//    Desenha uma linha
+    gl.glBegin(gl.GL_LINES);
+    gl.glColor3f(1, 1, 0);
+    gl.glVertex2f(0.9f, 0.9f);
+    gl.glVertex2f(0.1f, 0.1f);
+    gl.glEnd();
+//    Aumenta a expessura da linha
+    gl.glBegin(gl.GL_LINE_WIDTH);
+    gl.glLineWidth(5);
+    gl.glEnd();
   }
 
   @Override
