@@ -10,6 +10,13 @@
         <relativePath/>
     </parent>
 
+    <developers>
+        <developer>
+            <name>Graziel Medeiros</name>
+            <email>graziel.medeiros@gmail.com</email>
+        </developer>
+    </developers>
+
     <groupId>br.com.anhembi.cco</groupId>
     <artifactId>computacao-grafica</artifactId>
     <version>0.0.1</version>
