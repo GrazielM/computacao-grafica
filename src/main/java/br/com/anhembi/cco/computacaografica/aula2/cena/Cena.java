@@ -11,6 +11,7 @@ import com.jogamp.opengl.glu.GLU;
 public class Cena implements GLEventListener {
   private float xMin, xMax, yMin, yMax, zMin, zMax;
   GLU glu;
+  public static final double LIMITE = 2 * Math.PI;
 
   @Override
   public void init(GLAutoDrawable drawable) {
@@ -30,15 +31,13 @@ public class Cena implements GLEventListener {
     //limpa a janela com a cor especificada
     gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
     gl.glLoadIdentity(); //lê a matriz identidade
-        
-        /*
-            desenho da cena        
-        *
-        */
 
 //    exercicioUm(gl);
 //    exercicioDois(gl);
-    exercicioTres(gl);
+//    exercicioTres(gl);
+    exercicioRosaUm(gl);
+//    exercicioRosaDois(gl);
+
 
     gl.glFlush();
   }
@@ -46,28 +45,28 @@ public class Cena implements GLEventListener {
   private void exercicioTres(GL2 tela) {
     //Linha X
     tela.glBegin(tela.GL_LINES);
-    tela.glColor3f(1,0,0);
-    tela.glVertex2f(0,0);
-    tela.glVertex2f(1,0);
+    tela.glColor3f(1, 0, 0);
+    tela.glVertex2f(0, 0);
+    tela.glVertex2f(1, 0);
     tela.glEnd();
 
     //Linha Y
     tela.glBegin(tela.GL_LINES);
-    tela.glColor3f(0,1,0);
-    tela.glVertex2f(0,0);
-    tela.glVertex2f(0,1);
+    tela.glColor3f(0, 1, 0);
+    tela.glVertex2f(0, 0);
+    tela.glVertex2f(0, 1);
     tela.glEnd();
 
     //Linha Z
     tela.glBegin(tela.GL_LINES);
-    tela.glColor3f(0,0,1);
-    tela.glVertex2f(0,0);
-    tela.glVertex2f(-1,-1);
+    tela.glColor3f(0, 0, 1);
+    tela.glVertex2f(0, 0);
+    tela.glVertex2f(-1, -1);
     tela.glEnd();
 
     //Pontos
     tela.glBegin(tela.GL_POINTS);
-    tela.glColor3f(1,1,0);
+    tela.glColor3f(1, 1, 0);
     tela.glVertex2f(-0.9f, 0.9f);
     tela.glVertex2f(-0.8f, 0.9f);
     tela.glVertex2f(-0.9f, 0.8f);
@@ -76,20 +75,20 @@ public class Cena implements GLEventListener {
 
     //LooP
     tela.glBegin(tela.GL_LINE_LOOP);
-    tela.glColor3f(0,1,1);
-    tela.glVertex2f(-0.2f,0.2f);
-    tela.glVertex2f(-0.2f,0.5f);
-    tela.glVertex2f(-0.3f,0.4f);
-    tela.glVertex2f(-0.4f,0.5f);
-    tela.glVertex2f(-0.5f,0.3f);
-    tela.glVertex2f(-0.4f,0.2f);
-    tela.glVertex2f(-0.3f,0.3f);
-    tela.glVertex2f(-0.2f,0.2f);
+    tela.glColor3f(0, 1, 1);
+    tela.glVertex2f(-0.2f, 0.2f);
+    tela.glVertex2f(-0.2f, 0.5f);
+    tela.glVertex2f(-0.3f, 0.4f);
+    tela.glVertex2f(-0.4f, 0.5f);
+    tela.glVertex2f(-0.5f, 0.3f);
+    tela.glVertex2f(-0.4f, 0.2f);
+    tela.glVertex2f(-0.3f, 0.3f);
+    tela.glVertex2f(-0.2f, 0.2f);
     tela.glEnd();
 
     //Poligono
     tela.glBegin(tela.GL_POLYGON);
-    tela.glColor3f(1,0.5f,0);
+    tela.glColor3f(1, 0.5f, 0);
     tela.glVertex2f(-0.5f, -0.2f);
     tela.glVertex2f(-0.7f, -0.1f);
     tela.glVertex2f(-0.9f, -0.4f);
@@ -99,7 +98,7 @@ public class Cena implements GLEventListener {
 
     //Escada
     tela.glBegin(tela.GL_QUADS);
-    tela.glColor3f(0,1,0.5f);
+    tela.glColor3f(0, 1, 0.5f);
     //Quad 1
     tela.glVertex2f(0.9f, 0.1f);
     tela.glVertex2f(0.9f, 0.2f);
@@ -161,6 +160,56 @@ public class Cena implements GLEventListener {
     gl.glEnd();
   }
 
+  /**
+   * Inicia a gl com o line loop e define a cor rosa.
+   *
+   * @param tela gl onde sera definido o Line Loop e a cor rosa
+   */
+  private void initGlFLor(GL2 tela) {
+    tela.glBegin(GL2.GL_LINE_LOOP);
+    tela.glColor3f(1, 0.5f, 0.5f);
+  }
+
+  /**
+   * Graziel Medeiros - 20710833.
+   *
+   * @param tela gl onde será desenhada a flor
+   */
+  private void exercicioRosaUm(GL2 tela) {
+    double i;
+    double cx = 0;
+    double cy = 0;
+    double r;
+
+    initGlFLor(tela);
+
+    for (i = 0; i < LIMITE; i += 0.01) {
+      r = Math.cos(2 * i);
+      tela.glVertex2d(cx + r * Math.cos(i), cy + r * Math.sin(i));
+    }
+    tela.glEnd();
+  }
+
+
+  /**
+   * Graziel Medeiros - 20710833.
+   *
+   * @param tela gl onde será desenhada a flor
+   */
+  private void exercicioRosaDois(GL2 tela) {
+    double i;
+    double cx = 0;
+    double cy = 0;
+    double r;
+
+    initGlFLor(tela);
+    for (i = 0; i < LIMITE; i += 0.01) {
+      r = Math.sin(2 * i);
+      tela.glVertex2d(cx + r * Math.cos(i), cy + r * Math.sin(i));
+    }
+    tela.glEnd();
+  }
+
   @Override
   public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
     //obtem o contexto grafico Opengl
@@ -194,5 +243,6 @@ public class Cena implements GLEventListener {
 
   @Override
   public void dispose(GLAutoDrawable drawable) {
+    // No Use
   }
 }
