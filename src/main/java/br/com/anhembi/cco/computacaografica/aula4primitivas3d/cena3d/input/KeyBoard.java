@@ -1,6 +1,6 @@
-package br.com.anhembi.cco.computacaografica.aula2.input;
+package br.com.anhembi.cco.computacaografica.aula4primitivas3d.cena3d.input;
 
-import br.com.anhembi.cco.computacaografica.aula2.cena.Cena;
+import br.com.anhembi.cco.computacaografica.aula4primitivas3d.cena3d.cena.Cena;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 

@@ -1,6 +1,6 @@
-package br.com.anhembi.cco.computacaografica.aula2.input;
+package br.com.anhembi.cco.computacaografica.aula5.zbuffer.input;
 
-import br.com.anhembi.cco.computacaografica.aula2.cena.Cena;
+import br.com.anhembi.cco.computacaografica.aula5.zbuffer.cena.Cena;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 
@@ -20,8 +20,11 @@ public class KeyBoard implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
       System.exit(0);
 
-    if (e.getKeyChar() == 'a')
-      System.out.println("Pressionou tecla a");
+    if (e.getKeyChar() == 'r')
+      cena.angulo += 45;
+
+    if (e.getKeyChar() == 'z')
+      cena.zbuffer = !cena.zbuffer;
   }
 
   @Override

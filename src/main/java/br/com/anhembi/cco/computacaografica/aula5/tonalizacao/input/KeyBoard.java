@@ -1,8 +1,9 @@
-package br.com.anhembi.cco.computacaografica.aula2.input;
+package br.com.anhembi.cco.computacaografica.aula5.tonalizacao.input;
 
-import br.com.anhembi.cco.computacaografica.aula2.cena.Cena;
+import br.com.anhembi.cco.computacaografica.aula5.tonalizacao.cena.Cena;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
+import com.jogamp.opengl.GL2;
 
 /**
  * @author Siabreu
@@ -20,8 +21,11 @@ public class KeyBoard implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
       System.exit(0);
 
-    if (e.getKeyChar() == 'a')
-      System.out.println("Pressionou tecla a");
+    if (e.getKeyChar() == 'r')
+      cena.angulo += 45;
+
+    if (e.getKeyChar() == 't')
+      cena.tonalizacao = cena.tonalizacao == GL2.GL_SMOOTH ? GL2.GL_FLAT : GL2.GL_SMOOTH;
   }
 
   @Override
